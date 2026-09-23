@@ -1,30 +1,30 @@
 /* ==========================================================================
-   ABDULLA HASHIR ALI - PORTFOLIO DESIGN SYSTEM
-   Template Design Inspired by High-Standard Developer Portfolios
+   ABDULLA HASHIR ALI - MONOCHROME BLACK & WHITE PORTFOLIO DESIGN SYSTEM
+   High-Contrast Modern Developer Portfolio
    ========================================================================== */
 
 :root {
-    /* Color Palette - Light Default */
-    --bg-main: #fcfcfd;
+    /* Color Palette - High-Contrast Black & White */
+    --bg-main: #ffffff;
     --bg-card: #ffffff;
-    --bg-subtle: #f1f5f9;
-    --bg-dark-section: #090d16;
-    --bg-dark-card: #111827;
+    --bg-subtle: #f4f4f5;
+    --bg-dark-section: #09090b;
+    --bg-dark-card: #18181b;
 
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --text-subtle: #94a3b8;
-    --text-light: #f8fafc;
-    --text-light-muted: #94a3b8;
+    --text-main: #09090b;
+    --text-muted: #52525b;
+    --text-subtle: #a1a1aa;
+    --text-light: #ffffff;
+    --text-light-muted: #a1a1aa;
 
-    --accent-blue: #2563eb;
-    --accent-blue-hover: #1d4ed8;
-    --accent-pill-bg: #eff6ff;
-    --accent-pill-text: #1d4ed8;
+    --accent-mono: #000000;
+    --accent-mono-hover: #27272a;
+    --accent-pill-bg: #000000;
+    --accent-pill-text: #ffffff;
 
-    --border-light: #e2e8f0;
-    --border-subtle: #f1f5f9;
-    --border-dark: #1e293b;
+    --border-light: #e4e4e7;
+    --border-subtle: #f4f4f5;
+    --border-dark: #27272a;
 
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
@@ -43,19 +43,24 @@
 }
 
 [data-theme="dark"] {
-    --bg-main: #090d16;
-    --bg-card: #111827;
-    --bg-subtle: #1e293b;
+    --bg-main: #09090b;
+    --bg-card: #18181b;
+    --bg-subtle: #27272a;
 
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --text-subtle: #64748b;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --text-subtle: #71717a;
 
-    --border-light: #1e293b;
-    --border-subtle: #111827;
+    --accent-mono: #ffffff;
+    --accent-mono-hover: #e4e4e7;
+    --accent-pill-bg: #ffffff;
+    --accent-pill-text: #000000;
 
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 6px 16px -4px rgba(0,0,0,0.4);
+    --border-light: #27272a;
+    --border-subtle: #18181b;
+
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+    --shadow-md: 0 6px 16px -4px rgba(0,0,0,0.5);
 }
 
 /* RESET */
@@ -99,17 +104,17 @@ button {
 }
 
 :focus-visible {
-    outline: 2px solid var(--accent-blue);
+    outline: 2px solid var(--text-main);
     outline-offset: 3px;
 }
 
-/* Scroll Progress */
+/* Scroll Progress Bar */
 #scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
     height: 3px;
-    background: var(--accent-blue);
+    background: var(--text-main);
     width: 0%;
     z-index: 2000;
 }
@@ -131,10 +136,10 @@ button {
 
 .section-kicker {
     font-size: 0.8125rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent-blue);
+    letter-spacing: 0.12em;
+    color: var(--text-main);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -173,21 +178,25 @@ button {
 .btn-dark-pill {
     background-color: var(--text-main);
     color: var(--bg-main);
+    border: 1px solid var(--text-main);
 }
 
 .btn-dark-pill:hover {
-    background-color: var(--accent-blue);
-    color: #ffffff;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     transform: translateY(-1px);
 }
 
 .btn-primary-pill {
-    background-color: var(--accent-blue);
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    font-weight: 700;
 }
 
 .btn-primary-pill:hover {
-    background-color: var(--accent-blue-hover);
+    background-color: #e4e4e7;
+    color: #000000;
     transform: translateY(-1px);
 }
 
@@ -210,7 +219,7 @@ button {
 
 .btn-outline-pill-light:hover {
     border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .btn-ghost-pill {
@@ -218,7 +227,7 @@ button {
 }
 
 .btn-ghost-pill:hover {
-    color: var(--accent-blue);
+    color: var(--text-main);
 }
 
 .btn-ghost-pill-light {
@@ -238,7 +247,7 @@ button {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: rgba(252, 252, 253, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-light);
@@ -246,7 +255,7 @@ button {
 }
 
 [data-theme="dark"] .site-header {
-    background-color: rgba(9, 13, 22, 0.9);
+    background-color: rgba(9, 9, 11, 0.95);
 }
 
 .header-container {
@@ -361,41 +370,21 @@ button {
 
 .hero-top-meta {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-.pill-availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.35rem 0.85rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    background-color: var(--accent-pill-bg);
-    color: var(--accent-pill-text);
-    border-radius: var(--radius-pill);
-}
-
-.status-indicator-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #10b981;
-    display: inline-block;
-}
-
 .hero-location-text {
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--text-muted);
 }
 
 .hero-greeting {
-    font-size: 3.5rem;
+    font-size: 3.75rem;
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.05;
@@ -404,7 +393,7 @@ button {
 }
 
 .hero-headline {
-    font-size: 3.5rem;
+    font-size: 3.75rem;
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.05;
@@ -461,7 +450,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   DARK TECH STRIP
+   DARK TECH STRIP (Black & White Contrast)
    -------------------------------------------------------------------------- */
 .dark-tech-strip {
     background-color: var(--bg-dark-section);
@@ -552,8 +541,8 @@ button {
 
 .avatar-card-title {
     font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent-blue);
+    font-weight: 700;
+    color: var(--text-main);
     margin-bottom: 0.35rem;
 }
 
@@ -578,7 +567,7 @@ button {
 
 .about-paragraph.lead {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-main);
 }
 
@@ -643,15 +632,15 @@ button {
     font-family: var(--font-mono);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text-subtle);
+    color: var(--text-main);
 }
 
 .service-icon-box {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--bg-subtle);
-    color: var(--text-main);
+    background-color: var(--text-main);
+    color: var(--bg-main);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -708,10 +697,11 @@ button {
     display: inline-block;
     padding: 0.35rem 0.75rem;
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 600;
     background-color: var(--bg-subtle);
     color: var(--text-main);
     border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
 }
 
 /* --------------------------------------------------------------------------
@@ -727,10 +717,10 @@ button {
 
 .dark-kicker {
     font-size: 0.8125rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent-blue);
+    letter-spacing: 0.12em;
+    color: var(--text-light);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -802,7 +792,7 @@ button {
     font-family: var(--font-mono);
     font-size: 1.75rem;
     font-weight: 800;
-    color: var(--accent-blue);
+    color: var(--text-main);
     min-width: 48px;
 }
 
@@ -855,8 +845,8 @@ button {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent-blue);
-    background-color: var(--accent-pill-bg);
+    color: var(--bg-main);
+    background-color: var(--text-main);
     padding: 0.25rem 0.65rem;
     border-radius: var(--radius-pill);
 }
@@ -864,15 +854,16 @@ button {
 .project-num-badge {
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-subtle);
+    font-weight: 700;
+    color: var(--text-main);
 }
 
 .recognition-badge-tag {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #059669;
-    background-color: rgba(5, 150, 105, 0.1);
+    color: var(--text-main);
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-light);
     padding: 0.25rem 0.65rem;
     border-radius: var(--radius-pill);
 }
@@ -900,11 +891,12 @@ button {
 
 .p-tag {
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.2rem 0.55rem;
     background-color: var(--bg-subtle);
     color: var(--text-main);
     border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
 }
 
 .project-card-btn-area {
@@ -940,8 +932,8 @@ button {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    background-color: var(--accent-pill-bg);
-    color: var(--accent-blue);
+    background-color: var(--text-main);
+    color: var(--bg-main);
     padding: 0.2rem 0.6rem;
     border-radius: var(--radius-pill);
 }
@@ -962,7 +954,7 @@ button {
 .exp-company {
     font-size: 1.0625rem;
     font-weight: 700;
-    color: var(--accent-blue);
+    color: var(--text-main);
     margin-bottom: 1.25rem;
 }
 
@@ -984,7 +976,7 @@ button {
     content: "•";
     position: absolute;
     left: 0;
-    color: var(--accent-blue);
+    color: var(--text-main);
     font-weight: bold;
 }
 
@@ -1002,8 +994,8 @@ button {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: var(--accent-pill-bg);
-    color: var(--accent-blue);
+    background-color: var(--text-main);
+    color: var(--bg-main);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1047,8 +1039,8 @@ button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: var(--bg-subtle);
-    color: var(--text-main);
+    background-color: var(--text-main);
+    color: var(--bg-main);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1072,8 +1064,8 @@ button {
 
 .edu-school-name {
     font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--accent-blue);
+    font-weight: 700;
+    color: var(--text-main);
 }
 
 .edu-school-loc {
@@ -1091,7 +1083,7 @@ button {
 
 .quote-icon {
     font-size: 1.75rem;
-    color: var(--accent-blue);
+    color: var(--text-main);
     margin-bottom: 1rem;
 }
 
@@ -1229,7 +1221,7 @@ button {
     height: 40px;
     border-radius: 50%;
     background-color: var(--bg-dark-card);
-    color: var(--accent-blue);
+    color: var(--text-light);
     border: 1px solid var(--border-dark);
     display: flex;
     align-items: center;
@@ -1305,7 +1297,7 @@ button {
 }
 
 .dark-input:focus, .dark-textarea:focus {
-    border-color: var(--accent-blue);
+    border-color: #ffffff;
     outline: none;
 }
 
@@ -1342,7 +1334,7 @@ button {
 .footer-brand-title {
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--accent-blue);
+    color: var(--text-main);
 }
 
 .footer-brand-sub {
@@ -1470,7 +1462,7 @@ button {
 .modal-section-heading {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--accent-blue);
+    color: var(--text-main);
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -1494,7 +1486,7 @@ button {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #10b981;
+    color: var(--text-main);
     font-weight: bold;
 }
 
