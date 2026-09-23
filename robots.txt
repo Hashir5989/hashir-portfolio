@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hashir5989.github.io/hashir-portfolio/sitemap.xml
