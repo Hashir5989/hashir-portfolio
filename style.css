@@ -518,6 +518,22 @@ button {
     margin-bottom: 1.25rem;
 }
 
+.avatar-portrait-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--text-main);
+    display: block;
+    margin: 0 auto;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition);
+}
+
+.avatar-portrait-img:hover {
+    transform: scale(1.03);
+}
+
 .initials-badge-large {
     width: 90px;
     height: 90px;
