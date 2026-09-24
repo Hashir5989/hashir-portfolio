@@ -15,28 +15,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   1. THEME MANAGEMENT (DARK / LIGHT MODE)
+   1. THEME MANAGEMENT (PHONE & SYSTEM PREFERENCE SUPPORT)
    -------------------------------------------------------------------------- */
 function initTheme() {
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('portfolio_theme');
+    const systemThemeQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
     
-    // Default to dark mode as requested in specifications
-    const initialTheme = savedTheme ? savedTheme : 'dark';
-    setTheme(initialTheme);
+    // Set initial theme based on saved preference or phone/system setting
+    const initialTheme = getPreferredTheme();
+    applyTheme(initialTheme);
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            setTheme(newTheme);
+            localStorage.setItem('portfolio_theme', newTheme);
+            applyTheme(newTheme);
         });
+    }
+
+    // Listen for phone/OS system dark or light mode setting changes
+    if (systemThemeQuery) {
+        const handleSystemThemeChange = (e) => {
+            if (!localStorage.getItem('portfolio_theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        };
+        if (systemThemeQuery.addEventListener) {
+            systemThemeQuery.addEventListener('change', handleSystemThemeChange);
+        } else if (systemThemeQuery.addListener) {
+            systemThemeQuery.addListener(handleSystemThemeChange);
+        }
     }
 }
 
-function setTheme(theme) {
+function getPreferredTheme() {
+    const savedTheme = localStorage.getItem('portfolio_theme');
+    if (savedTheme) {
+        return savedTheme;
+    }
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('portfolio_theme', theme);
     const themeToggleBtn = document.getElementById('theme-toggle');
     if (themeToggleBtn) {
         themeToggleBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
