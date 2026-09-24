@@ -1,6 +1,6 @@
 /**
  * ABDULLA HASHIR ALI - PORTFOLIO INTERACTIVITY & LOGIC
- * Professional Senior Software Engineer / PHP & Laravel Developer
+ * Professional Senior Full Stack & PHP/Laravel Developer
  */
 
 document.addEventListener('DOMContentLoaded', () => {
