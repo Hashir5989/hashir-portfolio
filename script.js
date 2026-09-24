@@ -79,8 +79,8 @@ function initNavbarScroll() {
    -------------------------------------------------------------------------- */
 function initMobileNav() {
     const mobileToggleBtn = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navMenu = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-item-link');
 
     if (mobileToggleBtn && navMenu) {
         mobileToggleBtn.addEventListener('click', () => {
@@ -111,6 +111,22 @@ function initMobileNav() {
                 }
             });
         });
+
+        // Close menu on click outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && 
+                !navMenu.contains(e.target) && 
+                !mobileToggleBtn.contains(e.target)) {
+                navMenu.classList.remove('active');
+                mobileToggleBtn.setAttribute('aria-expanded', 'false');
+                const iconBars = mobileToggleBtn.querySelector('.icon-bars');
+                const iconClose = mobileToggleBtn.querySelector('.icon-close');
+                if (iconBars && iconClose) {
+                    iconBars.style.display = 'inline-block';
+                    iconClose.style.display = 'none';
+                }
+            }
+        });
     }
 }
 
@@ -119,7 +135,7 @@ function initMobileNav() {
    -------------------------------------------------------------------------- */
 function initActiveNavHighlight() {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-item-link');
 
     const observerOptions = {
         root: null,
